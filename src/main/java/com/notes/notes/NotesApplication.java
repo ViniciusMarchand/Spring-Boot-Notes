@@ -14,9 +14,5 @@ public class NotesApplication {
 		SpringApplication.run(NotesApplication.class, args);
 	}
 
-	@GetMapping("/hello")
-	public String hello() {
-		return "Hello World";
-	}
 
 }
