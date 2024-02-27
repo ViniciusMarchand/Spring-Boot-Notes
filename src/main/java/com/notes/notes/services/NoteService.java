@@ -44,8 +44,18 @@ public class NoteService implements CrudService<Note, NoteDTO>{
         return noteRepository.save(note);
     }
 
-    public Note update(int id, NoteDTO noteDTO) {
-        return new Note();
+    @Override
+    public Note update(int id, NoteDTO noteDTO) {        
+        Note note = getById(id);
+
+
+        note.setTitle(noteDTO.title());
+        note.setTimestamp(noteDTO.timestamp());
+        note.setColor(noteDTO.color());
+        note.setDescription(noteDTO.description());
+
+        return noteRepository.save(note);
+
     }
 
     @Override

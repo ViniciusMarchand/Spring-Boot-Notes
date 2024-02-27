@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.notes.notes.models.Note;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Integer>{
-        
+
+
+    
 }

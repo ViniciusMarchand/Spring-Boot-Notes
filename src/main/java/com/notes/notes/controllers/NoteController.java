@@ -6,13 +6,13 @@ import com.notes.notes.DTO.NoteDTO;
 import com.notes.notes.models.Note;
 import com.notes.notes.services.NoteService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -45,5 +45,11 @@ public class NoteController {
         return ResponseEntity.ok().body(note);
     }
 
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Note> update(@PathVariable int id, @RequestBody NoteDTO noteDTO) {
+        Note note = noteService.update(id,noteDTO);
+        return ResponseEntity.ok().body(note);
+    }
 
 }
